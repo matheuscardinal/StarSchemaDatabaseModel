@@ -1,0 +1,17 @@
+# Domain Property of the Week - Database Model
+
+## Business task
+
+### Summary:
+- Domain lauches Property of the week which registers users votes on properties. 
+- 01 vote per user per week.
+- Agency that supplies the property that becomes property of the week gets a money prize.
+
+### Task:
+ - Create a dabase model (Star/Snowflake schema) which whoud help answer the following questions
+ 1. Check if there is double voting by users.
+ 2. Check which agency is getting more cash prizes.
+ 3. Users from which location are more involved in the voting.
+ 
+ 
+
