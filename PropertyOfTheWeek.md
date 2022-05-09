@@ -224,9 +224,9 @@ Yes, there are double votes by user, as we can see in the screenshot, user 8 has
 
 This query took me hours to figure out! I didn't know how to get the max votes by week and property. Thanks to google, I now know how to use the row_number function to split and rank my rows.
 
-I did it in order, first I checked which property was the winner, count the votes, so I knew that property 1 from agency 1 wins with 4 voted for the first week, and property 7 from agency 3 wins with 5 votes for the second week. (Please refer to the screenshot above)
+- First I checked which property was the winner, count the votes, so I knew that property 1 from agency 1 wins with 4 votes for the first week, and property 7 from agency 3 wins with 5 votes for the second week. (Please refer to the screenshot above)
 
-Then once I found out how to split and rank my rows I got to the result that agency 1 wins for the first week and agency 3 wins for the second week, as I don't have any other weeks that's how far I could get, however we can possibly query and count how many times an agency have won, hypothetically if I had a bigger dataset to work on.
+- Then once I found out how to split and rank my rows I got to the result that agency 1 wins for the first week and agency 3 wins for the second week. Hypothetically if I had a bigger dataset to work on, I could possibly query and count how many times an agency have won. 
 
 #### 3 - Users from which locations are more involved in the voting.
 
