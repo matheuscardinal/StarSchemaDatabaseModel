@@ -175,19 +175,64 @@ My first draft diagram looked like the below
 
 ![FirstDraftDiagramStarSchema](https://user-images.githubusercontent.com/101608594/167389877-3cebdd90-708a-403f-8fda-265ce9e0d75c.png)
 
-#### At this exact I stopped because I realised it wouldn't work, I woudln't have been able to query neither connect, least answer the questions. 
+#### At this exact moment, I stopped because I realised it wouldn't work, I woudln't have been able to query neither connect, least answer the questions. 
 ### I needed more in depth studies and knowledge.
 
 
 
-## Final Diagram - Snowflake Schema Database Model
+## Final Diagram - Star Schema Database Model
+
+After nights awake and a lot of studies I learnt a few things:
+- Dimension tables doesn't have Foreinger Keys, they all belong in the fact table;
+- Show cardinalities through the lines (I still have to study this more and understand what they properly do);
+- Link agency to property, remove user_postcode and agency_id.
+
+And what needs to be changed in my diagram:
+- Replace dimVoteHistory and have a dimDate dimension table to list dates and register votes;
+- Link the dimVote table to the dimDate, because we need a vote by user being associated to a date;
+- Link dimAgency to dimProperty, because each property is associated to an agency;
+- Have a fact table as PropertyVotes.
+
+### My final diagram looks like below
+
+![PropertyOfTheWeek](https://user-images.githubusercontent.com/101608594/167426597-863869e8-9a26-45ec-9d32-7425d9264fa2.jpg)
+
+#### To check my fact table is able to answer all 3 questions I created some dummy values to show I can query them.
 
 
+Here I go.
 
+![CreateFactTable](https://user-images.githubusercontent.com/101608594/167421265-e5146dd5-d09f-46a7-9127-53744727b160.png)
 
+The dummy dataset contains 20 rows, so 20 votes, 8 users, 7 properties, 3 agencies, across 2 weeks (week_date).
 
+Column 'daily_date' for the day that the user voted and 'user_postcode' to find which locations are more involved in the voting.
 
+![FactTable](https://user-images.githubusercontent.com/101608594/167421740-a32195d3-6669-426b-a15d-48f39c80878e.png)
 
+### Answers
+
+#### 1 - Check if there is double voting by users.
+
+![DoubleVote](https://user-images.githubusercontent.com/101608594/167422640-d11d1c9c-b8a0-4f82-91a8-1f17319e683e.png)
+
+Yes, there are double votes by user, as we can see in the screenshot, user 8 has voted several times across 2 weeks, and user 6 in the second week.
+
+#### 2 - Check which agency is getting more cash prizes.
+
+![question2](https://user-images.githubusercontent.com/101608594/167423973-fcdb06ed-59f0-4837-b48a-7517e56b24a5.png)
+
+This query took me hours to figure out! I didn't know how to get the max votes by week and property. Thanks to google, I now know how to use the row_number function to split and rank my rows.
+
+I did it in order, first I checked which property was the winner, count the votes, so I knew that property 1 from agency 1 wins with 4 voted for the first week, and property 7 from agency 3 wins with 5 votes for the second week. (Please refer to the screenshot above)
+
+Then once I found out how to split and rank my rows I got to the result that agency 1 wins for the first week and agency 3 wins for the second week, as I don't have any other weeks that's how far I could get, however we can possibly query and count how many times an agency have won, hypothetically if I had a bigger dataset to work on.
+
+#### 3 - Users from which locations are more involved in the voting.
+
+![question3](https://user-images.githubusercontent.com/101608594/167428158-041a5a31-aa9d-4257-a23b-846e571428ca.png)
+
+As we can see in the screenshot we can have which location is enganging more with the voting. 7 votes from postcode 2033.
 
 
 
