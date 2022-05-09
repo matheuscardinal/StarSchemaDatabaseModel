@@ -175,6 +175,13 @@ My first draft diagram looked like the below
 
 ![FirstDraftDiagramStarSchema](https://user-images.githubusercontent.com/101608594/167389877-3cebdd90-708a-403f-8fda-265ce9e0d75c.png)
 
+#### At this exact I stopped because I realised it wouldn't work, I woudln't have been able to query neither connect, least answer the questions. 
+### I needed more in depth studies and knowledge.
+
+
+
+## Final Diagram - Snowflake Schema Database Model
+
 
 
 
